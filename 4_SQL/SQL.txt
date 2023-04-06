@@ -1,0 +1,21 @@
+CREATE TABLE Athlete                                                //Создание таблицы спортсменов
+(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    e-mail VARCHAR(255) UNIQUE NOT NULL,
+    phone VARCHAR(11) UNIQUE NOT NULL,
+    dateOfBirth DATE NOT NULL,
+    age INT NOT NULL,
+    createTime DATETIME NOT NULL,
+    passportNumber VARCHAR(10) NOT NULL,
+    averageResult FLOAT NOT NULL,
+    videoURL VARCHAR(MAX) UNIQUE NOT NULL,
+)
+
+
+SELECT  ID, Name                                                   //Запрос топ 5 ФИО
+FROM Athlete
+JOIN RESULTS ON id = idAthlete
+    GROUP BY RESULTS
+    ORDER BY COUNT(*) DESC
+LIMIT 5
